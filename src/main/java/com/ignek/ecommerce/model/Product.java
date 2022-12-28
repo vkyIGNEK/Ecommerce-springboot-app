@@ -8,21 +8,31 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
 @Entity
+@Data
 public class Product {
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	private String name;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id", referencedColumnName = "category_id")
 	private Category category;
+	
 	private double price;
+	
 	private double weight;
+	
 	private String description;
-	private String image;
+	
+	private String imageName;
+	
 	public Long getId() {
 		return id;
 	}
@@ -59,14 +69,14 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getImage() {
-		return image;
+	public String getImageName() {
+		return imageName;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 	public Product(Long id, String name, Category category, double price, double weight, String description,
-			String image) {
+			String imageName) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -74,7 +84,7 @@ public class Product {
 		this.price = price;
 		this.weight = weight;
 		this.description = description;
-		this.image = image;
+		this.imageName = imageName;
 	}
 	public Product() {
 		super();
@@ -83,9 +93,9 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", category=" + category + ", price=" + price + ", weight="
-				+ weight + ", description=" + description + ", image=" + image + "]";
+				+ weight + ", description=" + description + ", imageName=" + imageName + "]";
 	}
-	
 	
 
 }
+
