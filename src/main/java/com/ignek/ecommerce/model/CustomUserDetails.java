@@ -1,4 +1,4 @@
-package com.ignek.ecommerce.model;
+ package com.ignek.ecommerce.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class CustomUserDetails extends User implements UserDetails {
 	
-	public CustomUserDetails(){
-		super();
+	public CustomUserDetails(User user){
+		super(user);
 	}
 
 	@Override

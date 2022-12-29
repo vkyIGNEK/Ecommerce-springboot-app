@@ -25,7 +25,7 @@ public class Role {
 	@NotEmpty
 	private String name;
 	
-	@ManyToMany(mappedBy = "users")
+	@ManyToMany(mappedBy = "roles")
 	private List<User> users;
 
 	public Integer getId() {
